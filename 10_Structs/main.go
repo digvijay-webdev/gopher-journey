@@ -8,7 +8,7 @@ into a single variable.
 While arrays are used to store multiple values of the same data type into a single variable,
 structs are used to store multiple values of different data types into a single variable.
 A struct can be useful for grouping data together to create records.
-Key, value pairs
+Store data in key, value pairs but outputs value only.
 */
 
 // To declare a structure in Go, use the type and struct keywords
@@ -18,6 +18,13 @@ type Person struct {
 	age       int
 	height    float32
 	isAlive   bool
+	contact   Contact
+}
+
+// nesting struct
+type Contact struct {
+	email  string
+	mobile string
 }
 
 func getDetails(person Person) {
@@ -44,12 +51,17 @@ func main() {
 	getDetails(personOne)
 
 	// providing value to Person struct method 2
+	// example of nested struct
 	var personTwo Person = Person{
 		firstName: "Jane",
 		lastName:  "Doe",
 		age:       26,
 		height:    1.43,
 		isAlive:   false,
+		contact: Contact{
+			email:  "jane@doe.com",
+			mobile: "0912345678",
+		},
 	}
 	fmt.Println(personTwo)
 }
